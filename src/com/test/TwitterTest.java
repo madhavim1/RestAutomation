@@ -13,8 +13,8 @@ public class TwitterTest extends BaseTest {
 	@BeforeClass
 	public void beforeClass() {
 		util = new RestUtil();
-		//util.getRequest("statuses/lookup.json?", "20,432656548536401920");
-		util.postRequest("statuses/update.json?", "Testing%20post%20request4");
+		util.getRequest("statuses/lookup.json?", "20,432656548536401920");
+		// util.postRequest("statuses/update.json?", "Testing%20post%20request4");
 		// util.postRequest("direct_messages/destroy.json?id=785161828531712000");
 	}
 	
@@ -23,23 +23,23 @@ public class TwitterTest extends BaseTest {
 		Assert.assertEquals(HttpStatus.SC_OK, util.validateStatusCode());
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testListOfObjects() {
 		Assert.assertEquals(2, util.getMyPojo().length);
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testCreatedAt() {
 		Assert.assertEquals("Tue Mar 21 20:50:14 +0000 2006", util.validateCreatedAt(0));
 		Assert.assertEquals("Sun Feb 09 23:25:34 +0000 2014", util.validateCreatedAt(1));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testEntitiesUrl() {
 		Assert.assertEquals("https://t.co/9S8YO69xzf", util.validateEntitiesUrl(1));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testUserScreenName() {
 		Assert.assertEquals("TwitterDev", util.validateUserScreenName(1));
 	}
