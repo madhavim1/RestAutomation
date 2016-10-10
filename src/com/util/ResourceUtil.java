@@ -13,7 +13,6 @@ public class ResourceUtil {
 		X list = null;
 		try {
 			json = EntityUtils.toString(resp.getEntity());
-			// System.out.println("json string: "+json);
 			ObjectMapper mapper = new ObjectMapper();
 			list = mapper.readValue(json, cl);
 		} catch (JsonParseException e) {

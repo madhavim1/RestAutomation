@@ -7,7 +7,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 import com.pojo.MyPojo;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
@@ -80,8 +79,7 @@ public class RestUtil {
 	}
 
 	public int validateStatusCode() {
-		int i = response.getStatusLine().getStatusCode();
-		return i;
+		return response.getStatusLine().getStatusCode();
 	}
 
 	public String validateCreatedAt(int i) {
@@ -90,7 +88,7 @@ public class RestUtil {
 	}
 
 	public String validateEntitiesUrl(int i) {
-		return getMyPojo()[i].getEntities().getUrls()[0].getUrl();
+		return getMyPojo()[i].getEntities().getUrls()[i-1].getUrl();
 	}
 
 	public String validateUserScreenName(int i) {
